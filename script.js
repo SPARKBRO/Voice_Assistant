@@ -32,3 +32,13 @@ async function sendMessage() {
         console.error('Error fetching ChatGPT response');
     }
 }
+// Function to convert the bot's response to speech
+function speakResponse() {
+    const botResponse = document.getElementsByClassName('bot')[document.getElementsByClassName('bot').length - 1].textContent;
+    const speech = new SpeechSynthesisUtterance(botResponse);
+    speech.lang = 'en-US';
+    speech.volume = 1;
+    speech.rate = 1;
+    speech.pitch = 1;
+    window.speechSynthesis.speak(speech);
+}
